@@ -18,6 +18,52 @@ function GetAllPlaces() {
   return promiseObj;
 }
 
+function GetAllCountries() {
+  const promiseObj = new Promise((resolve, reject) => {
+    GetAllPlaces()
+    .then((places) => {
+      const arr = [];
+      places.forEach((p) => {
+        const thisPlace = p;
+
+        if (thisPlace.country_id) {
+          arr.push(thisPlace);
+        }
+      });
+
+      resolve(arr);
+    })
+    .catch((err) => {
+      reject(err);
+    });
+  });
+
+  return promiseObj;
+}
+
+function GetAllCities() {
+  const promiseObj = new Promise((resolve, reject) => {
+    GetAllPlaces()
+    .then((places) => {
+      const arr = [];
+      places.forEach((p) => {
+        const thisPlace = p;
+
+        if (thisPlace.city_id) {
+          arr.push(thisPlace);
+        }
+      });
+
+      resolve(arr);
+    })
+    .catch((err) => {
+      reject(err);
+    });
+  });
+
+  return promiseObj;
+}
+
 function FindCitiesByCountryCode(countryCode) {
   const promiseObj = new Promise((resolve, reject) => {
     GetAllPlaces()
@@ -32,6 +78,30 @@ function FindCitiesByCountryCode(countryCode) {
       });
 
       resolve(arr);
+    })
+    .catch((err) => {
+      reject(err);
+    });
+  });
+
+  return promiseObj;
+}
+
+function FindCountryByCountryCode(countryCode) {
+  const promiseObj = new Promise((resolve, reject) => {
+    GetAllPlaces()
+    .then((places) => {
+      let obj = {};
+      places.forEach((p) => {
+        const thisPlace = p;
+
+        if (thisPlace.country_id && thisPlace.country_code === countryCode) {
+          obj = thisPlace;
+          return;
+        }
+      });
+
+      resolve(obj);
     })
     .catch((err) => {
       reject(err);
@@ -76,6 +146,9 @@ function FindPlaceByCoordinates(lat, lng) {
 
 export {
   GetAllPlaces,
+  GetAllCountries,
+  GetAllCities,
   FindCitiesByCountryCode,
+  FindCountryByCountryCode,
   FindPlaceByCoordinates,
 };
