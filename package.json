@@ -1,0 +1,32 @@
+{
+  "name": "purple-maps-api",
+  "version": "0.0.1",
+  "description": "Maps data api for Purple Maps",
+  "main": "./distribution/index.js",
+  "scripts": {
+    "build": "babel source --presets babel-preset-env --out-dir distribution",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siddacool/purple-maps-api.git"
+  },
+  "keywords": [
+    "framework",
+    "js",
+    "javascript framework",
+    "components",
+    "router",
+    "hash router"
+  ],
+  "author": "Siddhesh Mangela",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/siddacool/purple-maps-api/issues"
+  },
+  "homepage": "https://siddacool.github.io/purple-maps/#/api",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
+}
