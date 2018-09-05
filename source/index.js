@@ -2,7 +2,7 @@ import goodOlAjax from './good-ol-ajax-promise';
 
 const api = 'https://sid-maps-api.firebaseapp.com';
 
-function getAllPlaces() {
+function GetAllPlaces() {
   const promiseObj = new Promise((resolve, reject) => {
     const dbApi = `${api}/mapdata`;
 
@@ -18,7 +18,7 @@ function getAllPlaces() {
   return promiseObj;
 }
 
-function findCitiesByCountryCode(countryCode) {
+function FindCitiesByCountryCode(countryCode) {
   const promiseObj = new Promise((resolve, reject) => {
     getAllPlaces()
     .then((places) => {
@@ -41,7 +41,7 @@ function findCitiesByCountryCode(countryCode) {
   return promiseObj;
 }
 
-function findPlaceByCoordinates(lat, lng) {
+function FindPlaceByCoordinates(lat, lng) {
   const promiseObj = new Promise((resolve, reject) => {
     getAllPlaces()
     .then((places) => {
@@ -75,7 +75,7 @@ function findPlaceByCoordinates(lat, lng) {
 }
 
 export {
-  getAllPlaces,
-  findCitiesByCountryCode,
-  findPlaceByCoordinates,
+  GetAllPlaces,
+  FindCitiesByCountryCode,
+  FindPlaceByCoordinates,
 };
