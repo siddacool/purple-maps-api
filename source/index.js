@@ -1,6 +1,6 @@
 import goodOlAjax from './good-ol-ajax-promise';
 
-const api = 'https://sid-maps-api.firebaseapp.com/mapdata';
+const api = 'https://sid-maps-api.firebaseapp.com';
 
 function getAllPlaces() {
   const promiseObj = new Promise((resolve, reject) => {
