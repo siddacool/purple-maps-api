@@ -20,7 +20,7 @@ function GetAllPlaces() {
 
 function FindCitiesByCountryCode(countryCode) {
   const promiseObj = new Promise((resolve, reject) => {
-    getAllPlaces()
+    GetAllPlaces()
     .then((places) => {
       const arr = [];
       places.forEach((p) => {
@@ -43,7 +43,7 @@ function FindCitiesByCountryCode(countryCode) {
 
 function FindPlaceByCoordinates(lat, lng) {
   const promiseObj = new Promise((resolve, reject) => {
-    getAllPlaces()
+    GetAllPlaces()
     .then((places) => {
       let toSend = '';
       places.forEach((p) => {
