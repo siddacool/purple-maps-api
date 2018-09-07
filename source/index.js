@@ -124,10 +124,10 @@ function FindPlaceByCoordinates(lat, lng) {
         const thisLat = thisPlace.lat;
         const thisLng = thisPlace.lng;
         const total = thisLat - thisLng;
-        const latMin = +thisLat - 0.8;
-        const latMax = +thisLat + 0.8;
-        const lngMin = +thisLng - 0.8;
-        const lngMax = +thisLng + 0.8;
+        const latMin = +thisLat - 0.18;
+        const latMax = +thisLat + 0.18;
+        const lngMin = +thisLng - 0.18;
+        const lngMax = +thisLng + 0.18;
 
         thisPlace.total = total;
 
