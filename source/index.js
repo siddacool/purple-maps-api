@@ -116,23 +116,40 @@ function FindPlaceByCoordinates(lat, lng) {
     GetAllPlaces()
     .then((places) => {
       let toSend = '';
+      const arr = [];
+      const totalDiff = lat - lng;
+
       places.forEach((p) => {
         const thisPlace = p;
-        const thisLatRound = Math.round(thisPlace.lat);
-        const thisLngRound = Math.round(thisPlace.lng);
-        const latRound = Math.round(lat);
-        const lngRound = Math.round(lng);
-        const latMax = latRound + 1;
-        const lngMax = lngRound + 1;
-        const latMin = latRound - 1;
-        const lngMin = lngRound - 1;
+        const thisLat = thisPlace.lat;
+        const thisLng = thisPlace.lng;
+        const total = thisLat - thisLng;
+        const latMin = +thisLat - 0.8;
+        const latMax = +thisLat + 0.8;
+        const lngMin = +thisLng - 0.8;
+        const lngMax = +thisLng + 0.8;
 
-        if (thisLatRound <= latMax && thisLatRound >= latMin
-          && thisLngRound <= lngMax && thisLngRound >= lngMin) {
-          toSend = thisPlace;
-          return;
+        thisPlace.total = total;
+
+        if (lat <= latMax && lat >= latMin && lng <= lngMax && lng >= lngMin) {
+          arr.push(thisPlace);
         }
       });
+
+      if (arr.length && arr.length > 0) {
+        let diff = '';
+
+        for (let i = 0; i < arr.length; i++) {
+          const thisPlace = arr[i];
+          const total = thisPlace.total;
+          const thisDiff = totalDiff - total;
+
+          if (diff === '' || diff > thisDiff) {
+            diff = thisDiff;
+            toSend = thisPlace;
+          }
+        }
+      }
 
       resolve(toSend);
     })
