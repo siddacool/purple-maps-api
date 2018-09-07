@@ -1,6 +1,6 @@
 {
   "name": "purple-maps-api",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Maps data api for Purple Maps",
   "main": "./distribution/index.js",
   "scripts": {
