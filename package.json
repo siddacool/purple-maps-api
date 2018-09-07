@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/siddacool/purple-maps-api/issues"
   },
-  "homepage": "https://siddacool.github.io/purple-maps/#/api",
+  "homepage": "https://siddacool.github.io/purplemaps/#/api",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
